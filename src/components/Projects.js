@@ -1,15 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Container,
-    Heading,
-    SimpleGrid,
-    Text,
-    VStack,
-    HStack,
-    Tag,
-    Button
-} from '@chakra-ui/react';
+import {Box, Container, Heading, SimpleGrid, Text, VStack, HStack, Tag, Button} from '@chakra-ui/react';
 
 
 const Projects = () => {
@@ -21,15 +11,21 @@ const Projects = () => {
             link: "https://github.com/Mewagers/mewagers.github.io",
             demo: "https://mewagers.github.io"
         },
-        // Add more projects here
+        {
+            title: "Web Game with Scoreboard",
+            description: "Created a game using Pygame and allows inputing highscores.",
+            technologies: ["Python", "Pycharm", "Pygame"],
+            link: "https://gihub.com/Mewagers/snake-game",
+            demo: "https://mewagers.github.io"
+        }
     ];
 
 
     return (
-        <Box py={12} bg="white">
+        <Box py={12} bg="transparent">
             <Container maxW={'6xl'}>
                 <VStack spacing={8}>
-                    <Heading as="h2" size="xl">
+                    <Heading as="h2" size="xl" color="whitesmoke">
                         Projects
                     </Heading>
 
@@ -37,7 +33,7 @@ const Projects = () => {
                         {projects.map((project, index) => (
                             <Box
                                 key={index}
-                                bg="gray.50"
+                                bg="rgb(220,220,220)"
                                 p={6}
                                 borderRadius="lg"
                                 boxShadow="xl"

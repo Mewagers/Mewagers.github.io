@@ -20,22 +20,22 @@ const Skills = () => {
         },
         {
             category: "Tools & Platforms",
-            skills: ["Git", "GitHub", "IntelliJ", "PostgreSQL"]
+            skills: ["Docker", "GitHub", "Jetbrains", "PostgreSQL"]
         }
     ];
 
 
     return (
-        <Box py={12} bg="gray.50">
+        <Box py={12} bg="transparent">
             <Container maxW={'6xl'}>
                 <VStack spacing={8}>
-                    <Heading as="h2" size="xl">
+                    <Heading as="h2" size="xl" color="whitesmoke">
                         Skills
                     </Heading>
 
                     {skillsList.map((category, index) => (
                         <Box key={index} w="full">
-                            <Heading as="h3" size="md" mb={4}>
+                            <Heading as="h3" size="md" mb={4} color="whitesmoke">
                                 {category.category}
                             </Heading>
                             <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4}>
@@ -43,7 +43,7 @@ const Skills = () => {
                                     <Box
                                         key={skillIndex}
                                         p={4}
-                                        bg="gray"
+                                        bg="rgb(220, 220, 220)"
                                         borderRadius="lg"
                                         boxShadow="md"
                                         textAlign="center"
