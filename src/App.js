@@ -19,7 +19,11 @@ function App() {
     return (
         <ChakraProvider theme={theme}>
             <div className="container">
-                <div className="blob"></div>
+                {/*<div className="glitch-wrapper">*/}
+                {/*    <div className="glitch-effect"></div>*/}
+                {/*    <div className="glitch-effect"></div>*/}
+                {/*    <div className="glitch-effect"></div>*/}
+                {/*</div>*/}
                 <Box
                     width="100%"
                     minHeight="100vh"

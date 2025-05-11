@@ -12,7 +12,7 @@ const Skills = () => {
     const skillsList = [
         {
             category: "Programming Languages",
-            skills: ["JavaScript", "Java", "Python", "SQL"]
+            skills: ["JavaScript", "Java", "Python", "R"]
         },
         {
             category: "Web Technologies",
@@ -23,6 +23,12 @@ const Skills = () => {
             skills: ["Docker", "GitHub", "Jetbrains", "PostgreSQL"]
         }
     ];
+
+    // Function to get random glitch class
+    const getRandomGlitchClass = () => {
+        const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
+        return classes[Math.floor(Math.random() * classes.length)];
+    };
 
 
     return (
@@ -36,6 +42,7 @@ const Skills = () => {
                         bgGradient="linear(to-r, #64FFDA, #4299E1)"
                         bgClip="text"
                         fontWeight="extrabold"
+
                     >
                         Skills
                     </Heading>
@@ -61,24 +68,20 @@ const Skills = () => {
                                     <Box
                                         key={skillIndex}
                                         p={4}
-                                        bg="rgba(255, 255, 255, 0.2)"
-                                        backdropFilter="blur(18px)"
+                                        bg="rgba(255, 255, 255, 0.1)"
                                         borderRadius="lg"
-                                        border="1px solid rgba(255, 255, 255, 0.18)"
-                                        boxShadow="0 8px 32px 0 rgba(31, 38, 135, 0.37)"
                                         textAlign="center"
-                                        transition="all 0.3s ease"
-                                        _hover={{
-                                            transform: 'translateY(-5px)',
-                                            boxShadow: '0 12px 36px 0 rgba(31, 38, 135, 0.45)',
-                                            borderColor: 'rgba(255, 255, 255, 0.25)'
-                                        }}
-
+                                        className="skill-box"
+                                        position="relative"
+                                        overflow="hidden"
                                     >
                                         <Text
                                             color="whitesmoke"
                                             fontSize="lg"
-                                            fontweight="darkbold"
+                                            fontWeight="bold"
+                                            zIndex="2"
+                                            position="relative"
+                                            className={getRandomGlitchClass()}
                                         >{skill}</Text>
                                     </Box>
                                 ))}
@@ -89,7 +92,6 @@ const Skills = () => {
             </Container>
         </Box>
     );
-
 };
 
 export default Skills;

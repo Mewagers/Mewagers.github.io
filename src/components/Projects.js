@@ -17,8 +17,21 @@ const Projects = () => {
             technologies: ["Python", "Pycharm", "Pygame"],
             link: "https://gihub.com/Mewagers/snake-game",
             demo: "https://mewagers.github.io"
+        },
+        {
+            title: "Tableau Sales Dashboard",
+            description: "Performed data analysis on sales data to identify trends and identify potential areas for improvement.",
+            technologies: ["Tableau", "SQL"],
+            link: "https://github.com/Mewagers/mewagers.github.io",
+            demo: "https://mewagers.github.io"
         }
     ];
+
+    // Function to get random glitch class
+    const getRandomGlitchClass = () => {
+        const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
+        return classes[Math.floor(Math.random() * classes.length)];
+    };
 
 
     return (
@@ -31,6 +44,7 @@ const Projects = () => {
                              bgGradient="linear(to-r, #64FFDA, #4299E1)"
                              bgClip="text"
                              fontWeight="extrabold"
+
                     >
                         Projects
                     </Heading>
@@ -62,6 +76,7 @@ const Projects = () => {
                                         as="h3"
                                         size="md"
                                         color="whitesmoke"
+                                        className={getRandomGlitchClass()}
                                     >
                                         {project.title}
                                     </Heading>
