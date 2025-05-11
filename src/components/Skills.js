@@ -57,6 +57,7 @@ const Skills = () => {
                                 size="md"
                                 mb={4}
                                 color="whitesmoke"
+                                className={getRandomGlitchClass()}
                             >
                                 {category.category}
                             </Heading>
@@ -76,7 +77,7 @@ const Skills = () => {
                                         overflow="hidden"
                                     >
                                         <Text
-                                            color="whitesmoke"
+                                            color="#64FFDA"
                                             fontSize="lg"
                                             fontWeight="bold"
                                             zIndex="2"

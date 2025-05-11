@@ -64,7 +64,7 @@ function About() {
                             color="whitesmoke"
                             lineHeight="tall"
                             maxW="800px"
-                            className={getRandomGlitchClass()}
+
                         >
                             I am a passionate software developer with experience in building modern web applications.
                             Holding a Bachelor's degree in Computer Science and a certification in Data Science, I bring

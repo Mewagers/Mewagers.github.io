@@ -3,6 +3,12 @@ import {Box, Container, Heading, SimpleGrid, Text, VStack, HStack, Tag, Button} 
 
 
 const Projects = () => {
+    // Handle demo button click
+    const handleDemoClick = (e) => {
+        e.preventDefault();
+        alert("UNDER CONSTRUCTION. \nPlease check back soon.");
+    };
+
     const projects = [
         {
             title: "Portfolio Website",
@@ -109,11 +115,10 @@ const Projects = () => {
                                             View Code
                                         </Button>
                                         <Button
-                                            as="a"
-                                            href={project.demo}
-                                            target="_blank"
+                                            onClick={handleDemoClick}
                                             colorScheme="green"
                                             color="whitesmoke"
+                                            className="download-button"
                                         >
                                             Live Demo
                                         </Button>
