@@ -4,9 +4,14 @@ import {Box, Container, Heading, SimpleGrid, Text, VStack, HStack, Tag, Button} 
 
 const Projects = () => {
     // Handle demo button click
-    const handleDemoClick = (e) => {
+    const handleDemoClick = (project) => (e) => {
         e.preventDefault();
-        alert("UNDER CONSTRUCTION. \nPlease check back soon.");
+        if (project.title === "Web Game with Scoreboard") {
+            alert("Demo not available yet. \nPlease check back soon.");
+        } else {
+            window.open(project.demo, "_blank");
+        }
+        // alert("UNDER CONSTRUCTION. \nPlease check back soon.");
     };
 
     const projects = [
@@ -29,7 +34,7 @@ const Projects = () => {
             description: "Performed data analysis on sales data to identify trends and identify potential areas for improvement.",
             technologies: ["Tableau", "SQL"],
             link: "https://github.com/Mewagers/mewagers.github.io",
-            demo: "https://mewagers.github.io"
+            demo: "https://public.tableau.com/app/profile/matt.wagers/viz/RegionalSalesDashboard_17470821183550/Dashboard1?publish=yes"
         }
     ];
 
@@ -115,7 +120,7 @@ const Projects = () => {
                                             View Code
                                         </Button>
                                         <Button
-                                            onClick={handleDemoClick}
+                                            onClick={handleDemoClick(project)}
                                             colorScheme="green"
                                             color="whitesmoke"
                                             className="download-button"
