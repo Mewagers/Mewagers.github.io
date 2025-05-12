@@ -21,7 +21,7 @@ const Projects = () => {
             title: "Web Game with Scoreboard",
             description: "Created a game using Pygame and includes highscore system.",
             technologies: ["Python", "Pycharm", "Pygame"],
-            link: "https://gihub.com/Mewagers/snake-game",
+            link: "https://github.com/Mewagers/mewagers.github.io",
             demo: "https://mewagers.github.io"
         },
         {
