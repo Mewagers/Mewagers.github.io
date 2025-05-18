@@ -3,6 +3,7 @@ import {Box, Container, Heading, SimpleGrid, Text, VStack, HStack, Tag, Button} 
 
 
 const Projects = () => {
+
     // Handle demo button click
     const handleDemoClick = (project) => (e) => {
         e.preventDefault();
@@ -11,13 +12,12 @@ const Projects = () => {
         } else {
             window.open(project.demo, "_blank");
         }
-        // alert("UNDER CONSTRUCTION. \nPlease check back soon.");
     };
 
     const projects = [
         {
             title: "Portfolio Website",
-            description: "Created a portfolio website using React and Chakra UI.",
+            description: "Created a portfolio website, using React and Chakra UI, to showcase my skills and recent projects.",
             technologies: ["React", "Node.js", "Chakra UI"],
             link: "https://github.com/Mewagers/mewagers.github.io",
             demo: "https://mewagers.github.io"
@@ -116,6 +116,7 @@ const Projects = () => {
                                             target="_blank"
                                             colorScheme="blue"
                                             color="whitesmoke"
+                                            className="download-button"
                                         >
                                             View Code
                                         </Button>
