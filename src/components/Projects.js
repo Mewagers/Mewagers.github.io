@@ -1,14 +1,18 @@
 import React from 'react';
 import {Box, Container, Heading, SimpleGrid, Text, VStack, HStack, Tag, Button} from '@chakra-ui/react';
+import FlappyGame from './FlappyGame';
 
 
 const Projects = () => {
+
+    const [showGame, setShowGame] = React.useState(false);
 
     // Handle demo button click
     const handleDemoClick = (project) => (e) => {
         e.preventDefault();
         if (project.title === "Web Game with Scoreboard") {
-            alert("Demo not available yet. \nPlease check back soon.");
+            // alert("Demo not available yet. \nPlease check back soon.");
+            setShowGame(true);
         } else {
             window.open(project.demo, "_blank");
         }
@@ -24,8 +28,8 @@ const Projects = () => {
         },
         {
             title: "Web Game with Scoreboard",
-            description: "Created a game using Pygame and includes highscore system.",
-            technologies: ["Python", "Pycharm", "Pygame"],
+            description: "Created a \"Flappy Bird\" style web game with a scoreboard, using JavaScript and Kaboom.js framework.",
+            technologies: ["JavaScript", "Kaboom.js", "IntelliJ IDEA"],
             link: "https://github.com/Mewagers/mewagers.github.io",
             demo: "https://mewagers.github.io"
         },
@@ -43,6 +47,24 @@ const Projects = () => {
         const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
         return classes[Math.floor(Math.random() * classes.length)];
     };
+
+    if (showGame) {
+        return (
+            <Box py={12} bg="transparent">
+                <Container maxW={'6xl'}>
+                    <VStack spacing={8}>
+                        <Heading as="h2" fontSize={["3xl", "4xl", "5xl"]} mb={4}>
+                            Flappy Bird Demo
+                        </Heading>
+                        <Button onClick={() => setShowGame(false)} mb={4}>
+                            Back to Projects
+                        </Button>
+                        <FlappyGame />
+                    </VStack>
+                </Container>
+            </Box>
+        );
+    }
 
 
     return (

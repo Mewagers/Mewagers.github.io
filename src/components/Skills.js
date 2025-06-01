@@ -24,7 +24,7 @@ const Skills = () => {
         }
     ];
 
-    // Function to get random glitch class
+    // Function to get random glitch class so that not everything glitches at the same rate
     const getRandomGlitchClass = () => {
         const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
         return classes[Math.floor(Math.random() * classes.length)];
