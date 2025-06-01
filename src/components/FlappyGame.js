@@ -62,21 +62,18 @@ const FlappyGame = () => {
             let pipeTimer = null; // Store the timer reference
 
             // Add background sprite
-            k.add([
-                k.sprite("background"),
-                k.pos(0, 0),
-                k.scale(1.1),
-                k.z(-1) // Put it behind everything else
-            ]);
+            // k.add([
+            //     k.sprite("background"),
+            //     k.pos(0, 0),
+            //     k.scale(1.1),
+            //     k.z(-1) // Put it behind everything else
+            // ]);
 
             // Create two background sprites for seamless scrolling
             const bg1 = k.add([
                 k.sprite("background"),
                 k.pos(0, 0),
-                k.scale(
-                    k.width() / k.getSprite("background").width,
-                    k.height() / k.getSprite("background").height
-                ),
+                k.scale(1.1),
                 k.z(-1),
                 "background"
             ]);
@@ -84,10 +81,7 @@ const FlappyGame = () => {
             const bg2 = k.add([
                 k.sprite("background"),
                 k.pos(k.width(), 0), // Position the second background to the right of the first
-                k.scale(
-                    k.width() / k.getSprite("background").width,
-                    k.height() / k.getSprite("background").height
-                ),
+                k.scale(1.1),
                 k.z(-1),
                 "background"
             ]);
