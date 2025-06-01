@@ -80,7 +80,7 @@ const FlappyGame = () => {
 
             const bg2 = k.add([
                 k.sprite("background"),
-                k.pos(k.width(), 0), // Position the second background to the right of the first
+                k.pos(k.width() - 55, 0), // Position the second background to the right of the first
                 k.scale(1.1),
                 k.z(-1),
                 "background"
