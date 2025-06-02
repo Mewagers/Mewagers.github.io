@@ -36,7 +36,8 @@ const FlappyGame = () => {
                 k.text(`Game Over!\nScore: ${score}\nPress Space to restart`),
                 k.pos(k.width() / 2, k.height() / 2),
                 k.anchor("center"),
-                k.color(255, 255, 255),
+                k.color(50, 50, 50),
+                k.outline(10, [0, 0, 0]),
             ]);
 
             k.onKeyPress("space", () => {
@@ -73,15 +74,15 @@ const FlappyGame = () => {
             const bg1 = k.add([
                 k.sprite("background"),
                 k.pos(0, 0),
-                k.scale(1.1),
+                k.scale(1, 1.1),
                 k.z(-1),
                 "background"
             ]);
 
             const bg2 = k.add([
                 k.sprite("background"),
-                k.pos(k.width() - 55, 0), // Position the second background to the right of the first
-                k.scale(1.1),
+                k.pos(k.width() - 1, 0), // Position the second background to the right of the first
+                k.scale(1, 1.1),
                 k.z(-1),
                 "background"
             ]);
@@ -94,10 +95,10 @@ const FlappyGame = () => {
 
                 // When a background moves completely off screen, move it to the right
                 if (bg1.pos.x <= -k.width()) {
-                    bg1.pos.x = bg2.pos.x + k.width();
+                    bg1.pos.x = bg2.pos.x + k.width() - 1;
                 }
                 if (bg2.pos.x <= -k.width()) {
-                    bg2.pos.x = bg1.pos.x + k.width();
+                    bg2.pos.x = bg1.pos.x + k.width() - 1;
                 }
             });
 
@@ -108,7 +109,9 @@ const FlappyGame = () => {
                 k.text(score.toString()),
                 k.pos(k.width() / 2, 50),
                 k.anchor("center"),
-                k.color(255, 255, 255),
+                k.color(50 , 50 , 50),
+                k.z(2),
+                k.outline(10, [0, 0, 0]),
             ]);
 
             // Player setup
@@ -138,7 +141,7 @@ const FlappyGame = () => {
                             k.go("gameOver", score);
                         }
 
-                        const angle = Math.min(Math.max(this.vel.y / 600, -0.5), 0.5) * Math.PI / 2;
+                        const angle = Math.min(Math.max(this.vel.y / 300, -1.2), 1.2) * Math.PI / 2;
                         this.angle = angle;
                     },
                     flap() {
@@ -175,7 +178,7 @@ const FlappyGame = () => {
                     k.rect(PIPE_WIDTH, gapY),
                     k.pos(k.width(), 0),
                     k.area(),
-                    k.color(0, 1, 0),
+                    k.color(0, 150, 0),
                     k.move(k.LEFT, PIPE_SPEED),
                     "pipe",
                 ]);
@@ -184,7 +187,7 @@ const FlappyGame = () => {
                     k.rect(PIPE_WIDTH, k.height() - (gapY + PIPE_GAP)),
                     k.pos(k.width(), gapY + PIPE_GAP),
                     k.area(),
-                    k.color(0, 1, 0),
+                    k.color(0, 150, 0),
                     k.move(k.LEFT, PIPE_SPEED),
                     "pipe",
                 ]);
