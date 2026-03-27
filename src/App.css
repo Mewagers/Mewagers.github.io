@@ -238,6 +238,30 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.flappy-shell {
+  background:
+    linear-gradient(180deg, rgba(122, 214, 255, 0.08), rgba(5, 10, 18, 0.28)),
+    rgba(5, 10, 18, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.flappy-shell:focus-visible {
+  border-color: rgba(124, 199, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(124, 199, 255, 0.32),
+    0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.flappy-canvas {
+  border-radius: 20px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 20px 40px rgba(0, 0, 0, 0.16);
+}
+
 .animate-rise {
   animation: rise 0.7s ease both;
 }

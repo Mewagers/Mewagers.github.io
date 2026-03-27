@@ -70,10 +70,10 @@ const arcadeGames = [
         label: 'Retro reflex',
         title: 'Sky Hopper',
         description:
-            'The original Flappy Bird-style demo stays in the mix as a lighter reflex game and a quick example of animation-heavy browser logic.',
+            'A refreshed Flappy Bird-style arcade run with smoother controls, a more polished playfield, and quick restart flow for better score chasing.',
         details:
-            'Keeping it in the arcade makes more sense than using it as a main portfolio piece, but it still shows sprite work, movement, and responsive canvas rendering.',
-        technologies: ['Kaboom.js', 'Sprites', 'Collision Logic'],
+            'It now feels more like a complete mini-game instead of a raw prototype, with layered visuals, tuned pacing, and stronger moment-to-moment feedback.',
+        technologies: ['Canvas 2D', 'React Hooks', 'Game Feel Tuning'],
         source: 'https://github.com/Mewagers/Mewagers.github.io/blob/main/src/components/FlappyGame.js',
         component: FlappyGame,
     },
