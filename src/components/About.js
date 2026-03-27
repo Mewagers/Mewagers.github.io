@@ -1,91 +1,179 @@
 import React from 'react';
-import { Box, Heading, Text, VStack, Container, Button } from '@chakra-ui/react';
-import { DownloadIcon } from '@chakra-ui/icons';
+import {
+    Box,
+    Button,
+    Container,
+    Heading,
+    HStack,
+    SimpleGrid,
+    Stack,
+    Tag,
+    Text,
+    Wrap,
+    WrapItem,
+} from '@chakra-ui/react';
+import { ArrowForwardIcon, DownloadIcon } from '@chakra-ui/icons';
 
+const focusAreas = [
+    'Responsive React interfaces',
+    'Data storytelling',
+    'Thoughtful product design',
+];
 
-function About() {
+const stats = [
+    {
+        value: '3',
+        label: 'core lanes',
+        detail: 'Front-end, data, and delivery',
+    },
+    {
+        value: 'React',
+        label: 'primary stack',
+        detail: 'Modern UI work with Chakra UI',
+    },
+    {
+        value: 'CS + DS',
+        label: 'background',
+        detail: 'Computer Science and Data Science',
+    },
+];
 
-    // Handle download of resume
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = '/Mwagers_resume.pdf';
-        link.download = 'Matthew_Wagers_Resume.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+const highlights = [
+    {
+        title: 'Interface quality',
+        description: 'Layouts that feel structured, readable, and easy to navigate on desktop or mobile.',
+    },
+    {
+        title: 'Data perspective',
+        description: 'Analysis and dashboards that help turn raw information into something useful.',
+    },
+    {
+        title: 'Execution',
+        description: 'Clean implementation details, stronger defaults, and a focus on finishing polished work.',
+    },
+];
 
-    // Function to get random glitch class
-    const getRandomGlitchClass = () => {
-        const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
-        return classes[Math.floor(Math.random() * classes.length)];
-    };
-
-
+/**
+ * Renders the landing hero with the portfolio introduction, primary calls to
+ * action, and a short summary of Matthew's focus areas and background.
+ *
+ * @param {{ resumeHref: string, resumeFilename: string }} props
+ * @returns {JSX.Element}
+ */
+function About({ resumeHref, resumeFilename }) {
     return (
-        <Box py={20} px={4}>
-            <Container maxW="container.md">
-                <VStack
-                    spacing={6}
-                    align="center"
-                    textAlign="center"
-                >
-                    <Heading
-                        as="h1"
-                        fontSize={["3xl", "4xl", "5xl"]}
-                        mb={1}
-                        bgGradient="linear(to-r, #64FFDA, #02d7f2)"
-                        bgClip="text"
-                        fontWeight="extrabold"
+        <Box
+            as="section"
+            id="about"
+            scrollMarginTop="120px"
+            pt={{ base: 6, md: 10 }}
+            pb={{ base: 16, md: 24 }}
+            px={{ base: 4, md: 6 }}
+        >
+            <Container maxW="7xl" px={0}>
+                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={{ base: 10, lg: 12 }} alignItems="stretch">
+                    <Stack spacing={8} className="animate-rise">
+                        <Tag alignSelf="flex-start" className="info-chip">
+                            Available for software and data-focused roles
+                        </Tag>
 
-                    >
-                        Matthew Wagers
-                    </Heading>
+                        <Stack spacing={5}>
+                            <Text textStyle="eyebrow" color="brand.200">
+                                Software Developer and Data Analyst
+                            </Text>
+                            <Heading textStyle="display" maxW="14ch">
+                                Building polished web experiences with a thoughtful data mindset.
+                            </Heading>
+                            <Text textStyle="lead" maxW="2xl">
+                                I am Matthew Wagers, a developer who enjoys pairing clean interface work with practical
+                                analytics. My goal is simple: ship projects that are visually clear, technically solid,
+                                and easy for people to understand.
+                            </Text>
+                        </Stack>
 
-                    <VStack
-                        spacing={2}
-                    >
-                        <Text
-                            fontSize={{ base: "xl", md: "2xl" }}
-                            color="whitesmoke"
-                            fontWeight="bold"
-                            className={getRandomGlitchClass()}
-                        >
-                            Software Developer & Data Scientist
-                        </Text>
+                        <Wrap spacing={3}>
+                            {focusAreas.map((item) => (
+                                <WrapItem key={item}>
+                                    <Tag className="info-chip">{item}</Tag>
+                                </WrapItem>
+                            ))}
+                        </Wrap>
 
-                    </VStack>
+                        <HStack spacing={4} flexWrap="wrap">
+                            <Button as="a" href="#projects" size="lg" rightIcon={<ArrowForwardIcon />}>
+                                View Projects
+                            </Button>
+                            <Button
+                                as="a"
+                                href={resumeHref}
+                                download={resumeFilename}
+                                size="lg"
+                                variant="outline"
+                                leftIcon={<DownloadIcon />}
+                            >
+                                Download Resume
+                            </Button>
+                        </HStack>
 
-                    <Box
-                        mt={9}
-                    >
-                        <Text
-                            fontSize="xl"
-                            color="whitesmoke"
-                            lineHeight="tall"
-                            maxW="800px"
+                        <SimpleGrid columns={{ base: 1, sm: 3 }} spacing={4}>
+                            {stats.map((stat) => (
+                                <Box key={stat.label} className="surface-card stat-card">
+                                    <Text className="stat-value" color="whiteAlpha.950">
+                                        {stat.value}
+                                    </Text>
+                                    <Text mt={3} textStyle="eyebrow" color="brand.200">
+                                        {stat.label}
+                                    </Text>
+                                    <Text mt={2} color="whiteAlpha.700" lineHeight="1.6">
+                                        {stat.detail}
+                                    </Text>
+                                </Box>
+                            ))}
+                        </SimpleGrid>
+                    </Stack>
 
-                        >
-                            I am a passionate software developer with experience in building modern web applications.
-                            Holding a Bachelor's degree in Computer Science and a certification in Data Science, I bring
-                            attention to detail to all of my projects.
-                        </Text>
+                    <Box className="surface-card hero-side-panel animate-rise-slow" p={{ base: 6, md: 8 }}>
+                        <Stack spacing={6} h="100%">
+                            <Box>
+                                <Text textStyle="eyebrow" color="brand.200">
+                                    Current Focus
+                                </Text>
+                                <Heading mt={3} fontSize={{ base: '2xl', md: '3xl' }} lineHeight="1.1">
+                                    Clear interfaces, strong structure, and projects that tell a story.
+                                </Heading>
+                            </Box>
+
+                            <Text color="whiteAlpha.760" lineHeight="1.8">
+                                I like work that feels intentional from the first glance to the implementation details.
+                                That means cleaner hierarchy, better spacing, better decisions about emphasis, and less
+                                visual noise.
+                            </Text>
+
+                            <Stack spacing={5} flex="1">
+                                {highlights.map((item) => (
+                                    <Box key={item.title} className="timeline-item">
+                                        <Text textStyle="eyebrow" color="brand.200">
+                                            {item.title}
+                                        </Text>
+                                        <Text mt={2} color="whiteAlpha.760" lineHeight="1.7">
+                                            {item.description}
+                                        </Text>
+                                    </Box>
+                                ))}
+                            </Stack>
+
+                            <Box className="hero-note">
+                                <Text textStyle="eyebrow" color="brand.200">
+                                    Background
+                                </Text>
+                                <Text mt={2} color="whiteAlpha.760" lineHeight="1.7">
+                                    Bachelor&apos;s degree in Computer Science plus a Data Science certification, with a
+                                    strong preference for work that feels organized, modern, and well-finished.
+                                </Text>
+                            </Box>
+                        </Stack>
                     </Box>
-                    <Button
-                        onClick={handleDownload}
-                        className="download-button"
-                        leftIcon={<DownloadIcon />}
-                        size="lg"
-                        mt={8}
-                        p={6}
-                        bg="transparent"
-                        color="#64FFDA"
-                        border="2px solid #64FFDA"
-                        _hover={{ bg: "transparent" }}
-                    >
-                        Download Resume
-                    </Button>
-                </VStack>
+                </SimpleGrid>
             </Container>
         </Box>
     );

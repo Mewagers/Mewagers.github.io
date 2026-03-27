@@ -4,92 +4,112 @@ import {
     Container,
     Heading,
     SimpleGrid,
+    Stack,
+    Tag,
     Text,
-    VStack
+    Wrap,
+    WrapItem,
 } from '@chakra-ui/react';
 
+const skillGroups = [
+    {
+        label: 'Build',
+        title: 'Front-end development',
+        summary: 'Interfaces that feel responsive, intentional, and easy to move through.',
+        skills: ['React', 'JavaScript', 'HTML', 'CSS', 'Chakra UI'],
+    },
+    {
+        label: 'Analyze',
+        title: 'Data and reporting',
+        summary: 'Tools for exploring trends, shaping dashboards, and presenting findings clearly.',
+        skills: ['Python', 'R', 'SQL', 'Tableau', 'PostgreSQL'],
+    },
+    {
+        label: 'Ship',
+        title: 'Workflow and delivery',
+        summary: 'Reliable habits for turning ideas into finished work without losing clarity.',
+        skills: ['Docker', 'GitHub', 'JetBrains', 'Testing', 'Responsive Design'],
+    },
+];
+
+const workingStyle = [
+    'Readable UI structure',
+    'Calm motion',
+    'Strong defaults',
+    'Clean presentation',
+];
+
+/**
+ * Displays grouped capability cards so the portfolio can quickly communicate
+ * the tools, strengths, and working style behind the showcased projects.
+ *
+ * @returns {JSX.Element}
+ */
 const Skills = () => {
-    const skillsList = [
-        {
-            category: "Programming Languages",
-            skills: ["JavaScript", "Java", "Python", "R"]
-        },
-        {
-            category: "Web Technologies",
-            skills: ["React", "HTML", "CSS", "Chakra UI"]
-        },
-        {
-            category: "Tools & Platforms",
-            skills: ["Docker", "GitHub", "Jetbrains", "PostgreSQL"]
-        }
-    ];
-
-    // Function to get random glitch class so that not everything glitches at the same rate
-    const getRandomGlitchClass = () => {
-        const classes = ['text-glitch-1', 'text-glitch-2', 'text-glitch-3', 'text-glitch-4', 'text-glitch-5'];
-        return classes[Math.floor(Math.random() * classes.length)];
-    };
-
-
     return (
-        <Box py={12} bg="transparent">
-            <Container maxW={'6xl'}>
-                <VStack spacing={8}>
-                    <Heading
-                        as="h2"
-                        fontSize={["3xl", "4xl", "5xl"]}
-                        mb={4}
-                        bgGradient="linear(to-r, #64FFDA, #4299E1)"
-                        bgClip="text"
-                        fontWeight="extrabold"
+        <Box
+            as="section"
+            id="skills"
+            scrollMarginTop="120px"
+            py={{ base: 14, md: 20 }}
+            px={{ base: 4, md: 6 }}
+        >
+            <Container maxW="7xl" px={0}>
+                <SimpleGrid columns={{ base: 1, lg: 12 }} spacing={{ base: 8, lg: 10 }}>
+                    <Stack spacing={5} gridColumn={{ lg: 'span 4 / span 4' }}>
+                        <Text textStyle="eyebrow" color="brand.200">
+                            Capabilities
+                        </Text>
+                        <Heading textStyle="sectionTitle" maxW="12ch">
+                            Tools I reach for most.
+                        </Heading>
+                        <Text textStyle="lead" maxW="md">
+                            I am strongest when I can pair product-minded UI work with data thinking and a steady
+                            delivery workflow.
+                        </Text>
 
+                        <Wrap spacing={3} pt={2}>
+                            {workingStyle.map((item) => (
+                                <WrapItem key={item}>
+                                    <Tag className="info-chip">{item}</Tag>
+                                </WrapItem>
+                            ))}
+                        </Wrap>
+                    </Stack>
+
+                    <SimpleGrid
+                        columns={{ base: 1, md: 3 }}
+                        spacing={5}
+                        gridColumn={{ lg: 'span 8 / span 8' }}
                     >
-                        Skills
-                    </Heading>
-
-                    {skillsList.map((category, index) => (
-                        <Box
-                            key={index}
-                            w="full"
-                        >
-                            <Heading
-                                as="h3"
-                                size="md"
-                                mb={4}
-                                color="whitesmoke"
-                                className={getRandomGlitchClass()}
-                            >
-                                {category.category}
-                            </Heading>
-                            <SimpleGrid
-                                columns={{ base: 2, md: 4 }}
-                                spacing={4}
-                            >
-                                {category.skills.map((skill, skillIndex) => (
-                                    <Box
-                                        key={skillIndex}
-                                        p={4}
-                                        bg="rgba(255, 255, 255, 0.1)"
-                                        borderRadius="lg"
-                                        textAlign="center"
-                                        className="skill-box"
-                                        position="relative"
-                                        overflow="hidden"
-                                    >
-                                        <Text
-                                            color="#64FFDA"
-                                            fontSize="lg"
-                                            fontWeight="bold"
-                                            zIndex="2"
-                                            position="relative"
-                                            className={getRandomGlitchClass()}
-                                        >{skill}</Text>
+                        {skillGroups.map((group) => (
+                            <Box key={group.title} className="surface-card skill-card" p={6}>
+                                <Stack spacing={5} h="100%">
+                                    <Box>
+                                        <Text textStyle="eyebrow" color="brand.200">
+                                            {group.label}
+                                        </Text>
+                                        <Heading mt={3} size="md" lineHeight="1.25">
+                                            {group.title}
+                                        </Heading>
                                     </Box>
-                                ))}
-                            </SimpleGrid>
-                        </Box>
-                    ))}
-                </VStack>
+
+                                    <Text color="whiteAlpha.740" lineHeight="1.7" flex="1">
+                                        {group.summary}
+                                    </Text>
+
+                                    <Wrap spacing={3}>
+                                        {group.skills.map((skill) => (
+                                            <WrapItem key={skill}>
+                                                <Tag className="info-chip">{skill}</Tag>
+                                            </WrapItem>
+                                        ))}
+                                    </Wrap>
+                                </Stack>
+                            </Box>
+                        ))}
+                    </SimpleGrid>
+                </SimpleGrid>
             </Container>
         </Box>
     );
