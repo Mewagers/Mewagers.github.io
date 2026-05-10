@@ -256,14 +256,14 @@ const Projects = () => {
                                         px={5}
                                         py={5}
                                         whiteSpace="normal"
-                                        textAlign="left"
+                                        textAlign="center"
                                         justifyContent="flex-start"
                                     >
-                                        <Stack spacing={2} align="flex-start">
+                                        <Stack spacing={2} align="center">
                                             <Text textStyle="eyebrow" color={selectedGameId === game.id ? 'ink.950' : 'brand.200'}>
                                                 {game.label}
                                             </Text>
-                                            <Text fontFamily="heading" fontSize="xl" color="inherit">
+                                            <Text fontFamily="heading" fontSize="2xl" color="inherit">
                                                 {game.title}
                                             </Text>
                                             <Text color={selectedGameId === game.id ? 'ink.900' : 'whiteAlpha.760'}>
